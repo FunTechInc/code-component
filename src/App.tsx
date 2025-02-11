@@ -17,8 +17,8 @@ const Scene = () => {
    const { size } = useThree();
    const aspectRatio = size.width / size.height;
    fitScale.current.set(
-      Math.min(aspectRatio / 1.846, 1),
-      Math.min(1.846 / aspectRatio, 1)
+      Math.min(aspectRatio / 1, 1),
+      Math.min(1 / aspectRatio, 1)
    );
 
    useFrame(() => {
