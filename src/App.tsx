@@ -31,7 +31,9 @@ const Scene = () => {
    });
 
    useEffect(() => {
-      const handshake = new Handshake.Child();
+      const handshake = new Handshake.Child({
+         url: "https://lime573060.studio.site/",
+      });
       handshake.ready(({ on }) =>
          on("scroll", (data) => {
             scrollProgress.current = 1 - data;
