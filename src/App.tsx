@@ -2,12 +2,13 @@ import * as THREE from "three";
 import * as Handshake from "@funtech-inc/handshake";
 import { useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useVideoTexture } from "@react-three/drei";
+import { useTexture } from "@react-three/drei";
 
 const Scene = () => {
-   const momo = useVideoTexture(
-      "https://player.vimeo.com/progressive_redirect/playback/996469408/rendition/1080p/file.mp4?loc=external&log_user=0&signature=d3caef5daa7dfd5d0f8d973632cf013a4bab227ba02d7bde631d17ec515c21c8"
-   );
+   // const momo = useVideoTexture(
+   //    "https://player.vimeo.com/progressive_redirect/playback/996469408/rendition/1080p/file.mp4?loc=external&log_user=0&signature=d3caef5daa7dfd5d0f8d973632cf013a4bab227ba02d7bde631d17ec515c21c8"
+   // );
+   const [momo] = useTexture(["/momo.jpg"]);
    const material = useRef<THREE.ShaderMaterial>(null);
    const fitScale = useRef(new THREE.Vector2(1));
    const progress = useRef(1);
