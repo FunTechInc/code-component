@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="./src/reset.css" />
+      <title>Parent</title>
+      <script src="https://unpkg.com/@funtech-inc/handshake@latest"></script>
+   </head>
+   <body>
+      <div
+         style="
+            height: 400vh;
+            font-size: 10vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            mix-blend-mode: difference;
+            color: white;
+         ">
+         <p>parent</p>
+         <p>parent</p>
+         <p>parent</p>
+         <p>parent</p>
+         <p>parent</p>
+         <p>parent</p>
+         <p>parent</p>
+         <p>parent</p>
+         <p>parent</p>
+         <p>parent</p>
+      </div>
+      <div
+         id="container"
+         style="
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            z-index: -1;
+         "></div>
+      <script>
+         new Handshake.Parent({
+            container: "container",
+            url: "http://localhost:5173/child",
+         }).ready(({ emit }) => {
+            const handleScroll = () =>
+               emit(
+                  "scroll",
+                  scrollY /
+                     (document.documentElement.scrollHeight - innerHeight)
+               );
+            handleScroll();
+            window.addEventListener("scroll", handleScroll);
+         });
+      </script>
+   </body>
+</html>
